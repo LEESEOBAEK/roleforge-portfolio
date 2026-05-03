@@ -17,6 +17,11 @@ One Drive-style workspace for harnessing role-based agents, model routing, RAG k
 
 <sub>Web workspace for agents, knowledge, model policy, multimodal runtime panels, and release-safety review.</sub>
 
+<br/>
+
+<a href="docs/index.html"><b>GitHub Pages-ready showcase</b></a>
+<sub>Enable Pages from the <code>/docs</code> folder to publish a richer visual tour.</sub>
+
 </div>
 
 ---
@@ -40,6 +45,8 @@ RoleForge approaches that as a harness and control-plane problem:
 - make release-safety checks visible before publishing
 
 ## Screenshots
+
+The README keeps screenshots readable and simple. For a more polished landing page, use [docs/index.html](docs/index.html) as the GitHub Pages entry point.
 
 ### Agent Registry
 
