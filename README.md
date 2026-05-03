@@ -41,25 +41,23 @@ RoleForge approaches that as a harness and control-plane problem:
 
 ## Screenshots
 
-<table>
-<tr>
-<td width="33%">
-<img src="docs/assets/screenshots/agent-registry.png" alt="Agent Registry"/>
-<br/>
-<sub><b>Agent Registry</b><br/>Role profiles, safety rules, and knowledge sources.</sub>
-</td>
-<td width="33%">
-<img src="docs/assets/screenshots/document-intake.png" alt="Document Intake"/>
-<br/>
-<sub><b>Document Intake</b><br/>OCR/PDF extraction and RAG knowledge promotion.</sub>
-</td>
-<td width="33%">
-<img src="docs/assets/screenshots/release-safety.png" alt="Release Safety"/>
-<br/>
-<sub><b>Release Safety</b><br/>PII, license, and publication checks.</sub>
-</td>
-</tr>
-</table>
+### Agent Registry
+
+![Agent Registry](docs/assets/screenshots/agent-registry.png)
+
+Role profiles, safety rules, model policy, and knowledge sources.
+
+### Document Intake
+
+![Document Intake](docs/assets/screenshots/document-intake.png)
+
+OCR/PDF extraction and RAG knowledge promotion.
+
+### Release Safety
+
+![Release Safety](docs/assets/screenshots/release-safety.png)
+
+PII, license, and publication checks before public release.
 
 ## Core Capabilities
 
