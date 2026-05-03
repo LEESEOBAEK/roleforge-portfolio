@@ -20,7 +20,7 @@ One Drive-style workspace for harnessing role-based agents, model routing, RAG k
 <br/>
 
 <a href="https://leeseobaek.github.io/roleforge-portfolio/"><b>Open the GitHub Pages showcase</b></a>
-<sub>If this opens as source code, use the Pages URL after enabling Pages from the <code>/docs</code> folder.</sub>
+<sub>Rendered portfolio page with a richer visual tour.</sub>
 
 </div>
 
@@ -46,13 +46,7 @@ RoleForge approaches that as a harness and control-plane problem:
 
 ## Screenshots
 
-The README keeps screenshots readable and simple. For a more polished landing page, open the rendered GitHub Pages site:
-
-```text
-https://leeseobaek.github.io/roleforge-portfolio/
-```
-
-Do not click `docs/index.html` in GitHub's file browser expecting a webpage. That view shows the HTML source code.
+The README keeps screenshots readable and simple. The visual showcase is available at [leeseobaek.github.io/roleforge-portfolio](https://leeseobaek.github.io/roleforge-portfolio/).
 
 ### Agent Registry
 
