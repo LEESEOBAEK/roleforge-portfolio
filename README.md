@@ -2,9 +2,9 @@
 
 # RoleForge
 
-**Local-first AI agent control plane**
+**Local-first AI agent harness and automation control plane**
 
-One Drive-style workspace for role-based agents, model routing, RAG knowledge, voice, OCR, image generation, and 3D mesh workflows.
+One Drive-style workspace for harnessing role-based agents, model routing, RAG knowledge, voice, OCR, image generation, and 3D mesh workflows.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -23,7 +23,7 @@ One Drive-style workspace for role-based agents, model routing, RAG knowledge, v
 
 ## Overview
 
-RoleForge is a local-first operating console for AI agent projects. It was designed to keep agent behavior, model policy, knowledge sources, privacy checks, and multimodal runtime tools in one workspace instead of scattering them across separate CLIs and experimental folders.
+RoleForge is a local-first agent harness and operating console for AI agent projects. It was designed to keep agent behavior, model policy, knowledge sources, privacy checks, and multimodal runtime tools in one workspace instead of scattering them across separate CLIs and experimental folders.
 
 The public portfolio repository intentionally contains only the project overview, screenshots, license, and third-party attribution notes. Source code, runtime logs, local model weights, generated artifacts, private roadmap files, and environment secrets are not included.
 
@@ -31,7 +31,7 @@ The public portfolio repository intentionally contains only the project overview
 
 Local AI workflows become hard to manage once they involve more than one model or modality. A chat agent, RAG index, OCR pipeline, voice runtime, image workflow, and 3D generator each need different setup, safety rules, and output handling.
 
-RoleForge approaches that as a control-plane problem:
+RoleForge approaches that as a harness and control-plane problem:
 
 - define role-based agents and their knowledge boundaries
 - route tasks to appropriate local or CLI providers
