@@ -2,9 +2,10 @@
 
 # RoleForge
 
-**Local-first AI agent harness and automation control plane**
+**A local-first AI agent harness and runtime control plane.**
 
-One Drive-style workspace for harnessing role-based agents, model routing, RAG knowledge, voice, OCR, image generation, and 3D mesh workflows.
+RoleForge brings role-based agents, model policy, RAG knowledge, voice, OCR,
+image generation, and 3D mesh workflows into one responsive Drive-style local workspace.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -15,7 +16,7 @@ One Drive-style workspace for harnessing role-based agents, model routing, RAG k
 
 ![RoleForge workspace](docs/assets/screenshots/hero-workspace.png)
 
-<sub>Web workspace for agents, knowledge, model policy, multimodal runtime panels, and release-safety review.</sub>
+<sub>Responsive Web Drive workspace for agents, knowledge, model policy, multimodal runtime panels, and release-safety review.</sub>
 
 <br/>
 
@@ -26,27 +27,44 @@ One Drive-style workspace for harnessing role-based agents, model routing, RAG k
 
 ---
 
-## Overview
+## Project Summary
 
-RoleForge is a local-first agent harness and operating console for AI agent projects. It was designed to keep agent behavior, model policy, knowledge sources, privacy checks, and multimodal runtime tools in one workspace instead of scattering them across separate CLIs and experimental folders.
+RoleForge started from a practical local-AI problem: once a project uses more
+than one model or modality, the workflow quickly fragments across terminals,
+temporary scripts, runtime folders, and safety notes.
 
-The public portfolio repository intentionally contains only the project overview, screenshots, license, and third-party attribution notes. Source code, runtime logs, local model weights, generated artifacts, private roadmap files, and environment secrets are not included.
+The project reframes that as a control-plane problem. Instead of treating chat,
+RAG, OCR, voice, image generation, 3D mesh creation, and model selection as
+separate experiments, RoleForge gives them a shared workspace, policy layer,
+artifact model, and release-safety path.
 
-## Why I Built It
+This portfolio repository is intentionally **README-only**. It shows the product
+direction, screenshots, architecture, and safety posture without publishing the
+application source code, private runtime logs, generated artifacts, local model
+weights, or environment secrets.
 
-Local AI workflows become hard to manage once they involve more than one model or modality. A chat agent, RAG index, OCR pipeline, voice runtime, image workflow, and 3D generator each need different setup, safety rules, and output handling.
+---
 
-RoleForge approaches that as a harness and control-plane problem:
+## Product Highlights
 
-- define role-based agents and their knowledge boundaries
-- route tasks to appropriate local or CLI providers
-- separate business, regulated, and research-only model lanes
-- keep generated outputs and private session data outside the public release
-- make release-safety checks visible before publishing
+| Area | What the project demonstrates |
+|---|---|
+| Agent operating model | Role profiles, safety rules, model policy, and per-agent knowledge boundaries |
+| Provider routing | Request-level routing across Ollama, Codex CLI, Claude CLI, Gemini CLI, and runtime adapters |
+| RAG workflow | Local document knowledge with hash-local embedding or Ollama `bge-m3` |
+| Document intake | Text, PDF, OCR extraction, privacy filtering, and knowledge promotion |
+| Voice runtime | faster-whisper STT and Korean TTS adapter flows |
+| Image workflow | Diffusers and ComfyUI integration with review/export handling |
+| 3D workflow | Image-to-mesh adapter contract for TripoSR/InstantMesh-style runtimes |
+| Research safety | Separate research lanes, human-review gates, and blocked egress before approval |
+| Release safety | PII, license, artifact, and source-boundary checks before publication |
+
+---
 
 ## Screenshots
 
-The README keeps screenshots readable and simple. The visual showcase is available at [leeseobaek.github.io/roleforge-portfolio](https://leeseobaek.github.io/roleforge-portfolio/).
+The README keeps screenshots readable and focused. The visual showcase is
+available at [leeseobaek.github.io/roleforge-portfolio](https://leeseobaek.github.io/roleforge-portfolio/).
 
 ### Agent Registry
 
@@ -66,55 +84,75 @@ OCR/PDF extraction and RAG knowledge promotion.
 
 PII, license, and publication checks before public release.
 
-## Core Capabilities
+---
 
-| Area | What RoleForge Handles |
-|---|---|
-| Agent design | Role profiles, behavior rules, safety config, and per-agent knowledge |
-| Model policy | 23-model registry with commercial, conditional, regulated, and research-only lanes |
-| RAG | Local document knowledge with offline hash embedding or Ollama `bge-m3` |
-| Document intake | Text, PDF, image extraction, OCR adapter, and privacy filtering |
-| Voice | STT and TTS adapters for local Korean voice workflows |
-| Image | Diffusers and ComfyUI workflow integration with review/export handling |
-| 3D | Image-to-mesh workflow with TripoSR/InstantMesh adapter structure |
-| Safety | Human-review gates, research-lane separation, and release-safety checklist |
-| Ontology | Semantic map of agents, capabilities, models, runtime lanes, and risk domains |
+## Architecture at a Glance
 
-## Tech Stack
+```text
+Web Drive Console
+  -> Agent Registry / Model Registry / Runtime Controls
+  -> Chat + Provider Routing
+  -> Document Intake + RAG Promotion
+  -> Voice / OCR / Image / 3D Panels
+  -> Review Queue + Release Safety
 
-<div align="center">
+Runtime Adapters
+  -> Ollama
+  -> CLI providers
+  -> FastAPI services
+  -> ComfyUI / Diffusers
+  -> TripoSR-style 3D services
+```
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+The important design choice is that policy and runtime state are not hidden in
+one-off scripts. They are surfaced through registries, review gates, operational
+events, and a workspace UI so the user can see what is running and why a task
+routes to a specific provider.
 
-</div>
+---
+
+## Technical Stack
 
 | Layer | Tools |
 |---|---|
-| Web console and CLI | TypeScript, Node.js, Express |
+| Web console and CLI | TypeScript, Node.js, native HTTP server |
 | Local LLM and embedding | Ollama, Qwen, BGE-M3 |
 | STT | faster-whisper |
 | TTS | Chatterbox, Kokoro, Edge TTS |
 | OCR | PaddleOCR adapter |
 | Image | Stable Diffusion, Diffusers, ComfyUI |
-| 3D | TripoSR, InstantMesh |
+| 3D | TripoSR, InstantMesh-compatible adapter contract |
 | Runtime services | FastAPI, Uvicorn |
+| Safety and policy | Model registry, review queue, PII filtering, release checklist |
 
-## Verification Snapshot
+Primary development environment: Windows 11 + WSL2 Ubuntu + NVIDIA GPU.
 
-The private release package was verified before creating this portfolio snapshot:
+---
+
+## Verification Posture
+
+The private source package uses `npm run check:v0.1` as the stable automated
+baseline. Runtime smoke tests are run separately when the corresponding local
+servers are available.
+
+Representative checks:
 
 ```text
-Full test suite:  186 / 186 passing
-Policy subset:     71 / 71 passing
+npm run check:v0.1
+npm run ocr:smoke
+npm run image:smoke:comfyui
+npm run 3d:ui-smoke
+npm run research:smoke:ollama
 ```
 
-## Public Release Boundary
+The portfolio repository does not claim to be a runnable package. It is a public
+showcase boundary for a larger private/local-first system.
 
-This portfolio repository does not include:
+---
+
+## Public Boundary
+
+This repository does not include:
 
 - application source code
 - `.env` files, tokens, API keys, or private config
@@ -123,13 +161,22 @@ This portfolio repository does not include:
 - generated image, voice, document, review, audit, or 3D output data
 - private roadmap notes or development work logs
 
-The goal is to show the product direction, architecture, screenshots, and release-safety posture without exposing private implementation files.
+The goal is to show the project direction, architecture, screenshots, and
+release-safety discipline without exposing private implementation files or local
+runtime data.
+
+---
 
 ## Attribution
 
-RoleForge can connect to third-party models and runtimes. Model weights and external services are not included in this repository and remain subject to their own licenses and terms.
+RoleForge can connect to third-party models and runtimes. Model weights and
+external services are not included in this repository and remain subject to
+their own licenses and terms.
 
-See [Third-Party Notices](docs/THIRD_PARTY_NOTICES.md) for model, OCR, STT, TTS, image, 3D, and runtime attribution.
+See [Third-Party Notices](docs/THIRD_PARTY_NOTICES.md) for model, OCR, STT, TTS,
+image, 3D, and runtime attribution.
+
+---
 
 ## License
 
