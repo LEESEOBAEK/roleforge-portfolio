@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RoleForge - AI Agent Harness</title>
+  <title>RoleForge - Automation Console Portfolio</title>
   <meta name="description" content="RoleForge is a local-first AI agent harness and automation control plane.">
   <style>
     :root {
@@ -46,7 +46,7 @@
     }
 
     .hero {
-      padding: 56px 0 36px;
+      padding: 54px 0 34px;
     }
 
     .eyebrow {
@@ -59,15 +59,15 @@
     }
 
     h1 {
-      max-width: 780px;
+      max-width: 820px;
       margin: 0;
-      font-size: clamp(40px, 7vw, 72px);
-      line-height: 0.98;
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1;
       letter-spacing: 0;
     }
 
     .lead {
-      max-width: 760px;
+      max-width: 780px;
       margin: 22px 0 0;
       color: var(--muted);
       font-size: 20px;
@@ -151,6 +151,23 @@
     .card p {
       margin: 0;
       color: var(--muted);
+    }
+
+    .milestone {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 210px;
+      gap: 22px;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 0;
+    }
+
+    .milestone img {
+      width: 180px;
+      max-width: 100%;
+      border-radius: 8px;
+      justify-self: end;
     }
 
     .tour {
@@ -245,8 +262,13 @@
     @media (max-width: 760px) {
       .grid,
       .flow,
-      .tabs {
+      .tabs,
+      .milestone {
         grid-template-columns: 1fr;
+      }
+
+      .milestone img {
+        justify-self: start;
       }
 
       .hero {
@@ -260,10 +282,10 @@
     <section class="hero">
       <div class="shell">
         <p class="eyebrow">Local-first AI agent harness</p>
-        <h1>RoleForge coordinates agents, models, knowledge, and release safety in one responsive workspace.</h1>
-        <p class="lead">A portfolio-safe overview of the RoleForge control plane: responsive Web Drive, agent registry, model policy, RAG knowledge, OCR intake, voice, image, 3D, and public release review.</p>
+        <h1>RoleForge turns agent automation into a visible operator workflow.</h1>
+        <p class="lead">A portfolio-safe overview of the RoleForge control plane: responsive Web Drive, Automation Console, typed Agent Harness, runtime readiness, model policy, multimodal adapters, and release review.</p>
         <div class="actions">
-          <a class="button" href="#visual-tour">View the tour</a>
+          <a class="button" href="#automation">View the milestone</a>
           <a class="button secondary" href="THIRD_PARTY_NOTICES.md">Third-party notices</a>
         </div>
         <div class="hero-shot">
@@ -272,7 +294,22 @@
       </div>
     </section>
 
-    <section id="visual-tour">
+    <section id="automation">
+      <div class="shell milestone">
+        <div>
+          <h2>Automation Console milestone</h2>
+          <p class="section-lead">The latest release surfaces automation as a dedicated Web Drive app instead of hiding it in backend scripts. Operators can inspect readiness, run typed harness actions, see audit events, and follow recovery hints from one console.</p>
+          <div class="grid">
+            <article class="card"><h3>Typed results</h3><p>Actions return status, summary, next actions, artifacts, and recovery hints.</p></article>
+            <article class="card"><h3>Runtime readiness</h3><p>Voice, Document, Image, 3D, and Model Server adapters show state before execution.</p></article>
+            <article class="card"><h3>Policy boundary</h3><p>Direct, app-only, review-required, and blocked actions stay visible.</p></article>
+          </div>
+        </div>
+        <img src="assets/icons/automation-console-profile.png" alt="Automation Console profile icon">
+      </div>
+    </section>
+
+    <section>
       <div class="shell">
         <h2>What it controls</h2>
         <p class="section-lead">RoleForge treats local AI work as an orchestration problem instead of a collection of disconnected model scripts.</p>
@@ -296,7 +333,7 @@
     <section>
       <div class="shell">
         <h2>Visual tour</h2>
-        <p class="section-lead">This tabbed tour is GitHub Pages ready. A GIF or MP4 demo can be added later without changing the README structure.</p>
+        <p class="section-lead">This tabbed tour is GitHub Pages ready and keeps the public view focused on product surfaces, not private runtime files.</p>
         <div class="tour">
           <input id="tour-agent" name="tour" type="radio" checked>
           <input id="tour-document" name="tour" type="radio">
@@ -317,7 +354,7 @@
             </article>
             <article class="panel safety">
               <div class="shot"><img src="assets/screenshots/release-safety.png" alt="Release Safety screenshot"></div>
-              <p class="caption">PII, license, and publication checks before public release.</p>
+              <p class="caption">PII, license, artifact, and publication checks before public release.</p>
             </article>
           </div>
         </div>
@@ -329,8 +366,8 @@
         <h2>Operating flow</h2>
         <div class="flow">
           <div class="step"><b>1. Define</b><span>Create role-based agents and knowledge boundaries.</span></div>
-          <div class="step"><b>2. Route</b><span>Select model lanes by task, policy, and runtime availability.</span></div>
-          <div class="step"><b>3. Review</b><span>Inspect generated outputs, documents, and safety events.</span></div>
+          <div class="step"><b>2. Check</b><span>Inspect runtime readiness before executing automation.</span></div>
+          <div class="step"><b>3. Run</b><span>Execute typed harness steps with structured results.</span></div>
           <div class="step"><b>4. Publish</b><span>Export a public-safe portfolio or release package.</span></div>
         </div>
       </div>

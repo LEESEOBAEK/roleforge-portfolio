@@ -10,7 +10,7 @@ This file is an attribution and review aid, not legal advice. Upstream terms con
 
 | Registry ID | Upstream name | Recorded license / terms | Source |
 |---|---|---|---|
-| `qwen3-5-9b` | Qwen3 14B (`qwen3:14b` backend) | Apache-2.0 | https://huggingface.co/Qwen/Qwen3.5-9B |
+| `qwen3-14b` | Qwen3 14B (`qwen3:14b` backend) | Apache-2.0 | https://huggingface.co/Qwen/Qwen3-14B |
 | `gemma3-12b-it` | Gemma 3 12B IT | Gemma Terms | https://huggingface.co/google/gemma-3-12b-it |
 | `qwen3-coder-next` | Qwen3-Coder-Next-FP8 | Apache-2.0 | https://huggingface.co/Qwen/Qwen3-Coder-Next-FP8 |
 | `bge-m3` | BGE-M3 | MIT | https://huggingface.co/BAAI/bge-m3 |
