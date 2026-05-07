@@ -1,380 +1,81 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RoleForge - Automation Console Portfolio</title>
-  <meta name="description" content="RoleForge is a local-first AI agent harness and automation control plane.">
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6f8fb;
-      --panel: #ffffff;
-      --ink: #18202f;
-      --muted: #5d687a;
-      --line: #dbe2ec;
-      --accent: #176b87;
-      --accent-strong: #0f4f67;
-      --soft: #e8f3f6;
-      --code: #111827;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent-strong);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .shell {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 54px 0 34px;
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: var(--accent-strong);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 820px;
-      margin: 0;
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      max-width: 780px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 20px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 28px 0 0;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 44px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--accent-strong);
-      border-radius: 8px;
-      padding: 0 16px;
-      background: var(--accent-strong);
-      color: white;
-      font-weight: 700;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--accent-strong);
-    }
-
-    .hero-shot {
-      margin: 34px 0 0;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--panel);
-      box-shadow: 0 18px 45px rgba(24, 32, 47, 0.14);
-    }
-
-    .hero-shot img,
-    .shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    section {
-      padding: 34px 0;
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-size: 30px;
-      letter-spacing: 0;
-    }
-
-    .section-lead {
-      max-width: 760px;
-      margin: 0 0 20px;
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
-      background: var(--panel);
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .milestone {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 210px;
-      gap: 22px;
-      align-items: center;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 28px 0;
-    }
-
-    .milestone img {
-      width: 180px;
-      max-width: 100%;
-      border-radius: 8px;
-      justify-self: end;
-    }
-
-    .tour {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-      overflow: hidden;
-    }
-
-    .tabs {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      border-bottom: 1px solid var(--line);
-      background: var(--soft);
-    }
-
-    .tabs label {
-      cursor: pointer;
-      padding: 14px 16px;
-      color: var(--muted);
-      font-weight: 800;
-      text-align: center;
-    }
-
-    input[name="tour"] {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .panel {
-      display: none;
-      padding: 18px;
-    }
-
-    #tour-agent:checked ~ .tabs label[for="tour-agent"],
-    #tour-document:checked ~ .tabs label[for="tour-document"],
-    #tour-safety:checked ~ .tabs label[for="tour-safety"] {
-      background: var(--panel);
-      color: var(--accent-strong);
-    }
-
-    #tour-agent:checked ~ .panels .agent,
-    #tour-document:checked ~ .panels .document,
-    #tour-safety:checked ~ .panels .safety {
-      display: block;
-    }
-
-    .shot {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .caption {
-      margin: 12px 0 0;
-      color: var(--muted);
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .step {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 14px;
-      background: var(--panel);
-    }
-
-    .step b {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--code);
-    }
-
-    .step span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer {
-      padding: 32px 0 48px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 760px) {
-      .grid,
-      .flow,
-      .tabs,
-      .milestone {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoleForge Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #172033;
+        background: #f7fafc;
       }
-
-      .milestone img {
-        justify-self: start;
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
       }
-
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 4rem);
+        letter-spacing: 0;
+      }
+      p {
+        max-width: 760px;
+        line-height: 1.65;
+      }
       .hero {
-        padding-top: 34px;
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 22px 70px rgba(25, 39, 52, 0.16);
       }
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <section class="hero">
-      <div class="shell">
-        <p class="eyebrow">Local-first AI agent harness</p>
-        <h1>RoleForge turns agent automation into a visible operator workflow.</h1>
-        <p class="lead">A portfolio-safe overview of the RoleForge control plane: responsive Web Drive, Automation Console, typed Agent Harness, runtime readiness, model policy, multimodal adapters, and release review.</p>
-        <div class="actions">
-          <a class="button" href="#automation">View the milestone</a>
-          <a class="button secondary" href="THIRD_PARTY_NOTICES.md">Third-party notices</a>
-        </div>
-        <div class="hero-shot">
-          <img src="assets/screenshots/hero-workspace.png" alt="RoleForge workspace overview">
-        </div>
-      </div>
-    </section>
-
-    <section id="automation">
-      <div class="shell milestone">
-        <div>
-          <h2>Automation Console milestone</h2>
-          <p class="section-lead">The latest release surfaces automation as a dedicated Web Drive app instead of hiding it in backend scripts. Operators can inspect readiness, run typed harness actions, see audit events, and follow recovery hints from one console.</p>
-          <div class="grid">
-            <article class="card"><h3>Typed results</h3><p>Actions return status, summary, next actions, artifacts, and recovery hints.</p></article>
-            <article class="card"><h3>Runtime readiness</h3><p>Voice, Document, Image, 3D, and Model Server adapters show state before execution.</p></article>
-            <article class="card"><h3>Policy boundary</h3><p>Direct, app-only, review-required, and blocked actions stay visible.</p></article>
-          </div>
-        </div>
-        <img src="assets/icons/automation-console-profile.png" alt="Automation Console profile icon">
-      </div>
-    </section>
-
-    <section>
-      <div class="shell">
-        <h2>What it controls</h2>
-        <p class="section-lead">RoleForge treats local AI work as an orchestration problem instead of a collection of disconnected model scripts.</p>
-        <div class="grid">
-          <article class="card">
-            <h3>Agent behavior</h3>
-            <p>Role profiles, safety config, model routing, and per-agent knowledge stay visible together.</p>
-          </article>
-          <article class="card">
-            <h3>Multimodal runtime</h3>
-            <p>OCR, voice, image, and 3D adapters are presented as controlled panels rather than hidden scripts.</p>
-          </article>
-          <article class="card">
-            <h3>Release boundary</h3>
-            <p>Portfolio output keeps source code, generated artifacts, secrets, and local model weights out of public repos.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="shell">
-        <h2>Visual tour</h2>
-        <p class="section-lead">This tabbed tour is GitHub Pages ready and keeps the public view focused on product surfaces, not private runtime files.</p>
-        <div class="tour">
-          <input id="tour-agent" name="tour" type="radio" checked>
-          <input id="tour-document" name="tour" type="radio">
-          <input id="tour-safety" name="tour" type="radio">
-          <div class="tabs">
-            <label for="tour-agent">Agent Registry</label>
-            <label for="tour-document">Document Intake</label>
-            <label for="tour-safety">Release Safety</label>
-          </div>
-          <div class="panels">
-            <article class="panel agent">
-              <div class="shot"><img src="assets/screenshots/agent-registry.png" alt="Agent Registry screenshot"></div>
-              <p class="caption">Role profiles, safety rules, model policy, and knowledge sources.</p>
-            </article>
-            <article class="panel document">
-              <div class="shot"><img src="assets/screenshots/document-intake.png" alt="Document Intake screenshot"></div>
-              <p class="caption">OCR and PDF extraction with RAG knowledge promotion.</p>
-            </article>
-            <article class="panel safety">
-              <div class="shot"><img src="assets/screenshots/release-safety.png" alt="Release Safety screenshot"></div>
-              <p class="caption">PII, license, artifact, and publication checks before public release.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="shell">
-        <h2>Operating flow</h2>
-        <div class="flow">
-          <div class="step"><b>1. Define</b><span>Create role-based agents and knowledge boundaries.</span></div>
-          <div class="step"><b>2. Check</b><span>Inspect runtime readiness before executing automation.</span></div>
-          <div class="step"><b>3. Run</b><span>Execute typed harness steps with structured results.</span></div>
-          <div class="step"><b>4. Publish</b><span>Export a public-safe portfolio or release package.</span></div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="shell">RoleForge portfolio page. Source code, secrets, model weights, and generated runtime artifacts are intentionally excluded from this public snapshot.</div>
-  </footer>
-</body>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+        margin-top: 28px;
+      }
+      figure {
+        margin: 0;
+        background: white;
+        border: 1px solid #d9e2ec;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+      }
+      figcaption {
+        padding: 12px 14px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>RoleForge</h1>
+      <p>A local-first AI agent workspace with RAG safety hardening, Health Content Studio, automation console, mobile Drive UX, and release-safety workflows.</p>
+      <img class="hero" src="assets/screenshots/hero-workspace.png" alt="RoleForge Web Drive workspace">
+      <section class="grid" aria-label="Screenshots">
+        <figure>
+          <img src="assets/screenshots/mobile-drive.png" alt="Mobile Drive">
+          <figcaption>Mobile Drive</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/brand-icons.png" alt="Unified app icons">
+          <figcaption>Unified App Icons</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/agent-registry.png" alt="Agent Registry">
+          <figcaption>Agent Registry</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/release-safety.png" alt="Release Safety">
+          <figcaption>Release Safety</figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
 </html>

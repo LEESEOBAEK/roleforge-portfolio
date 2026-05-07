@@ -1,10 +1,9 @@
-.DS_Store
-Thumbs.db
 .env
-.env.*
 node_modules/
 dist/
 sessions/
 artifacts/
-models/
-local-models/
+data/
+*.zip
+.DS_Store
+Thumbs.db
